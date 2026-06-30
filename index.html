@@ -1,324 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Aurealba | Thank You</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    html, body{
-      width:100%;
-      overflow-x:hidden;
-      background:linear-gradient(135deg,#f8f6f2 0%,#efe9df 100%);
-      -webkit-text-size-adjust:100%;
-    }
-
-    body{
-      font-family:'Inter',sans-serif;
-
-      /* IMPORTANT FIX */
-      min-height:100dvh; /* better than 100vh on mobile */
-      padding:24px;
-
-      display:flex;
-      justify-content:center;
-      align-items:flex-start; /* key change (NOT center) */
-
-      position:relative;
-    }
-
-    img{
-      max-width:100%;
-      height:auto;
-      display:block;
-    }
-
-    /* BACKGROUND */
-    .bg1,
-    .bg2{
-      position:absolute;
-      border-radius:50%;
-      filter:blur(120px);
-      z-index:0;
-      pointer-events:none;
-    }
-
-    .bg1{
-      width:450px;
-      height:450px;
-      background:#c9972b20;
-      top:-150px;
-      right:-120px;
-    }
-
-    .bg2{
-      width:350px;
-      height:350px;
-      background:#c9972b15;
-      bottom:-140px;
-      left:-120px;
-    }
-
-    /* CARD */
-    .container{
-      width:100%;
-      max-width:1100px;
-      background:rgba(255,255,255,0.82);
-      backdrop-filter:blur(18px);
-      border-radius:36px;
-      overflow:hidden;
-      box-shadow:0 25px 60px rgba(0,0,0,0.08);
-      border:1px solid rgba(255,255,255,0.6);
-      position:relative;
-      z-index:2;
-      margin-top:20px;
-      margin-bottom:40px; /* IMPORTANT: removes “stuck bottom gap feel” */
-    }
-
-    .top-line{
-      width:100%;
-      height:5px;
-      background:linear-gradient(90deg,#b88321,#d8b05d,#b88321);
-    }
-
-    .content{
-      padding:70px 90px;
-      text-align:center;
-      position:relative;
-    }
-
-    .glow{
-      position:absolute;
-      width:280px;
-      height:280px;
-      background:#c9972b18;
-      border-radius:50%;
-      filter:blur(70px);
-      left:-70px;
-      top:10px;
-      pointer-events:none;
-    }
-
-    .logo{
-      width:240px;
-      margin:0 auto 20px;
-    }
-
-    h1{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(42px,6vw,82px);
-      font-weight:600;
-      color:#b88321;
-      margin-bottom:18px;
-    }
-
-    .subtitle{
-      max-width:720px;
-      margin:auto;
-      color:#5d5d5d;
-      font-size:clamp(14px,2.2vw,18px);
-      line-height:1.8;
-    }
-
-    /* MAKE CARD BIGGER (fix “empty feeling”) */
-    .message-card{
-      margin-top:60px;
-      background:rgba(255,255,255,0.85);
-      border:1px solid rgba(201,151,43,0.15);
-      border-radius:30px;
-      padding:60px 50px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8),
-                  0 10px 30px rgba(0,0,0,0.03);
-    }
-
-    .message{
-      max-width:760px;
-      margin:auto;
-      font-size:clamp(14px,2vw,17px);
-      line-height:1.9;
-      color:#555;
-    }
-
-    .highlight{
-      color:#b88321;
-      font-weight:600;
-    }
-
-    .signature{
-      margin-top:45px;
-    }
-
-    .signature h2{
-      font-family:'Cormorant Garamond',serif;
-      font-size:34px;
-      color:#b88321;
-      margin-bottom:6px;
-    }
-
-    .signature p{
-      color:#777;
-      letter-spacing:2px;
-      font-size:13px;
-      text-transform:uppercase;
-    }
-
-    .footer{
-      margin-top:55px;
-      display:flex;
-      justify-content:center;
-      gap:35px;
-      flex-wrap:wrap;
-      font-size:13px;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:#8a8a8a;
-    }
-
-    .footer span{
-      position:relative;
-    }
-
-    .footer span::after{
-      content:"";
-      position:absolute;
-      width:6px;
-      height:6px;
-      border-radius:50%;
-      background:#c9972b;
-      right:-21px;
-      top:50%;
-      transform:translateY(-50%);
-    }
-
-    .footer span:last-child::after{
-      display:none;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px){
-      .content{
-        padding:50px 35px;
-      }
-
-      .message-card{
-        padding:40px 25px;
-      }
-    }
-
-    @media (max-width: 600px){
-      body{
-        padding:14px;
-      }
-
-      .container{
-        border-radius:24px;
-      }
-
-      .content{
-        padding:40px 20px;
-      }
-
-      .logo{
-        width:160px;
-      }
-
-      .glow{
-        display:none;
-      }
-
-      .message-card{
-        padding:30px 18px;
-      }
-    }
-
-    @media (max-width: 420px){
-      .content{
-        padding:30px 14px;
-      }
-
-      .message-card{
-        padding:24px 16px;
-      }
-
-      .footer{
-        gap: 25px;
-        font-size:11px;
-      }
-
-      .footer span::after{
-        right:-15px;
-      }
-
-      .logo{
-        width:140px;
-      }
-    }
-
-  </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aurealba | Thank You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{
+width:100%;
+overflow-x:hidden;
+background:linear-gradient(135deg,#f8f6f2 0%,#efe9df 100%);
+-webkit-text-size-adjust:100%;
+}
+body{
+width:100%;
+min-height:100vh;
+overflow-x:hidden;
+font-family:'Inter',sans-serif;
+background:linear-gradient(135deg,#f8f6f2 0%,#efe9df 100%);
+padding:24px;
+display:flex;
+justify-content:center;
+align-items:flex-start;
+position:relative;
+}
+img{max-width:100%;height:auto;display:block;}
+.bg1,.bg2{
+position:fixed;
+border-radius:50%;
+filter:blur(120px);
+z-index:0;
+pointer-events:none;
+}
+.bg1{width:450px;height:450px;background:#c9972b20;top:-150px;right:-120px;}
+.bg2{width:350px;height:350px;background:#c9972b15;bottom:-120px;left:-120px;}
+.container{
+width:100%;
+max-width:1100px;
+background:rgba(255,255,255,.82);
+backdrop-filter:blur(18px);
+border-radius:36px;
+overflow:hidden;
+box-shadow:0 25px 60px rgba(0,0,0,.08);
+border:1px solid rgba(255,255,255,.6);
+position:relative;
+z-index:2;
+margin:20px auto;
+}
+.top-line{height:5px;background:linear-gradient(90deg,#b88321,#d8b05d,#b88321);}
+.content{padding:70px 90px;text-align:center;position:relative;}
+.glow{position:absolute;width:280px;height:280px;background:#c9972b18;border-radius:50%;filter:blur(70px);left:-70px;top:10px;pointer-events:none;}
+.logo{width:240px;margin:0 auto 20px;}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6vw,82px);font-weight:600;color:#b88321;margin-bottom:18px;}
+.subtitle{max-width:720px;margin:auto;color:#5d5d5d;font-size:clamp(14px,2.2vw,18px);line-height:1.8;}
+.message-card{margin-top:60px;background:rgba(255,255,255,.85);border:1px solid rgba(201,151,43,.15);border-radius:30px;padding:60px 50px;box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 10px 30px rgba(0,0,0,.03);}
+.message{max-width:760px;margin:auto;font-size:clamp(14px,2vw,17px);line-height:1.9;color:#555;}
+.highlight{color:#b88321;font-weight:600;}
+.signature{margin-top:45px;}
+.signature h2{font-family:'Cormorant Garamond',serif;font-size:34px;color:#b88321;margin-bottom:6px;}
+.signature p{color:#777;letter-spacing:2px;font-size:13px;text-transform:uppercase;}
+.footer{margin-top:55px;display:flex;justify-content:center;gap:35px;flex-wrap:wrap;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#8a8a8a;}
+.footer span{position:relative;}
+.footer span::after{content:"";position:absolute;width:6px;height:6px;border-radius:50%;background:#c9972b;right:-21px;top:50%;transform:translateY(-50%);}
+.footer span:last-child::after{display:none;}
+@media(max-width:900px){.content{padding:50px 35px}.message-card{padding:40px 25px}}
+@media(max-width:600px){body{padding:14px}.container{border-radius:24px}.content{padding:40px 20px}.logo{width:160px}.glow{display:none}.message-card{padding:30px 18px}}
+@media(max-width:420px){.content{padding:30px 14px}.message-card{padding:24px 16px}.footer{gap:25px;font-size:11px}.footer span::after{right:-15px}.logo{width:140px}}
+</style>
 </head>
-
 <body>
-
-  <div class="bg1"></div>
-  <div class="bg2"></div>
-
-  <div class="container">
-
-    <div class="top-line"></div>
-
-    <div class="content">
-
-      <div class="glow"></div>
-
-      <img src="./Aurealba Logo.png" class="logo" alt="Aurealba Logo">
-
-      <h1>Thank You</h1>
-
-      <p class="subtitle">
-        Your purchase reflects trust, elegance, and support.
-      </p>
-
-      <div class="message-card">
-
-        <p class="message">
-          Thank you for choosing <span class="highlight">Aurealba</span>.
-          <br><br>
-          Every piece is designed with timeless elegance and sophistication.
-          Your support allows us to continue creating premium experiences.
-        </p>
-
-        <div class="signature">
-          <h2>With Gratitude</h2>
-          <p>Aurealba Team</p>
-        </div>
-
-      </div>
-
-      <div class="footer">
-        <span>TIMELESS</span>
-        <span>ELEGANT</span>
-        <span>AUTHENTIC</span>
-      </div>
-
-    </div>
-
-  </div>
-
+<div class="bg1"></div>
+<div class="bg2"></div>
+<div class="container">
+<div class="top-line"></div>
+<div class="content">
+<div class="glow"></div>
+<img src="./Aurealba Logo.png" class="logo" alt="Aurealba Logo">
+<h1>Thank You</h1>
+<p class="subtitle">Your purchase reflects trust, elegance, and support.</p>
+<div class="message-card">
+<p class="message">Thank you for choosing <span class="highlight">Aurealba</span>.<br><br>Every piece is designed with timeless elegance and sophistication. Your support allows us to continue creating premium experiences.</p>
+<div class="signature"><h2>With Gratitude</h2><p>Aurealba Team</p></div>
+</div>
+<div class="footer"><span>TIMELESS</span><span>ELEGANT</span><span>AUTHENTIC</span></div>
+</div>
+</div>
 </body>
 </html>
